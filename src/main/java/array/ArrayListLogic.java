@@ -28,9 +28,8 @@ public class ArrayListLogic {
 
             arr[i-1] = Integer.parseInt(input);
 
-
-
             value = new int[i];
+
             for(int m = 0; m < arr.length ; m++){
                 value[m] = arr[m];
             }
