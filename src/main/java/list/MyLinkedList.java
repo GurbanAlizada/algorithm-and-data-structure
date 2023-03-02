@@ -1,17 +1,10 @@
-package linkedList;
+package list;
 
 public class MyLinkedList<T>{
 
     private Node<T> head;
     private int size;
 
-    @Override
-    public String toString() {
-        return "MyLinkedList{" +
-                "head=" + head +
-                ", size=" + size +
-                '}';
-    }
 
     public MyLinkedList() {
         this.head = null;
@@ -35,6 +28,17 @@ public class MyLinkedList<T>{
                     '}';
         }
     }
+
+
+    @Override
+    public String toString() {
+        return "MyLinkedList{" +
+                "head=" + head +
+                ", size=" + size +
+                '}';
+    }
+
+
 
     public void add(T data){
         Node<T> node = new Node<>(data);
@@ -76,32 +80,49 @@ public class MyLinkedList<T>{
 
         if (index == 0){
              head = head.next;
+        }else{
+            Node current = head;
+            for (int i = 0 ;  i < index-1 ; i++){
+                current = current.next;
+            }
+            current.next = current.next.next;
         }
-        Node<T> current = head;
 
-        for (int i = 0 ;  i < index-1 ; i++){
-            current = current.next;
-        }
-        current.next = current.next.next;
         size--;
     }
 
 
     public static void main(String[] args) {
 
-        MyLinkedList<Integer> linkedList = new MyLinkedList<>();
-        linkedList.add(2);
-        linkedList.add(4);
-        linkedList.add(6);
-        linkedList.add(1);
-        linkedList.add(9);
+        MyLinkedList<String> linkedList = new MyLinkedList<>();
+        linkedList.add("Messi");
+        linkedList.add("Neymar");
+        linkedList.add("Suarez");
+        linkedList.add("Arda");
+        linkedList.add("Inesta");
+
+        linkedList.remove(0);
+        linkedList.remove(2);
 
 
         System.out.println(linkedList.get(0));
-        System.out.println(linkedList.get(3));
+        System.out.println(linkedList.get(2));
 
         System.out.println(linkedList);
 
+
+
+        MyLinkedList myLinkedList2 = new MyLinkedList();
+        myLinkedList2.add("Salam");
+        myLinkedList2.add(2.4);
+        myLinkedList2.add(2023);
+
+        System.out.println(myLinkedList2.get(0));
+        System.out.println(myLinkedList2.get(1));
+        System.out.println(myLinkedList2.get(2));
+
     }
+
+
 
 }
